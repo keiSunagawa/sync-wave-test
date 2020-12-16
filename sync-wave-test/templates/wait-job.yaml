@@ -4,8 +4,7 @@ metadata:
   name: wait-job-{{ .Values.wave }}
   annotations:
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-    annotations:
-      argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   template:
     spec:
