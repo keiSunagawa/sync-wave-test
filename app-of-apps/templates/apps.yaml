@@ -20,7 +20,7 @@ spec:
     targetRevision: master
   syncPolicy:
     automated:
-    prune: true
+      prune: true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -43,7 +43,7 @@ spec:
     targetRevision: master
   syncPolicy:
     automated:
-    prune: true
+      prune: true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -66,5 +66,5 @@ spec:
     targetRevision: master
   syncPolicy:
     automated:
-    prune: true
+      prune: true
 
