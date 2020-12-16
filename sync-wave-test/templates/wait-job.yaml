@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: wait-job
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  template:
+    spec:
+      containers:
+      - name: wait-jobs
+        image: busybox:1.28
+        command: ['sh', '-c', 'echo The app is running! && sleep 5']
+      restartPolicy: Never
+  backoffLimit: 0
