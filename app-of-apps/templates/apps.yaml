@@ -1,0 +1,64 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sync-wave-test-a
+spec:
+  destination:
+    namespace: sync-wave-test
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+      - name: wave
+        value: "3"
+    path: sync-wave-test
+    repoURL: https://github.com/keiSunagawa/sync-wave-test.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+    prune: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sync-wave-test-b
+spec:
+  destination:
+    namespace: sync-wave-test
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+      - name: wave
+        value: "2"
+    path: sync-wave-test
+    repoURL: https://github.com/keiSunagawa/sync-wave-test.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+    prune: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sync-wave-test-c
+spec:
+  destination:
+    namespace: sync-wave-test
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+      - name: wave
+        value: "1"
+    path: sync-wave-test
+    repoURL: https://github.com/keiSunagawa/sync-wave-test.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+    prune: true
+
